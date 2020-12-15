@@ -1,0 +1,27 @@
+{
+    "name": "clxcommunications/sdk-xms",
+    "description": "Library for CLX Communications HTTP REST Messaging API",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/clxcommunications/sdk-xms-php/",
+    "support": {
+        "issues": "https://github.com/clxcommunications/sdk-xms-php/issues"
+    },
+    "autoload": {
+        "psr-4": {"Clx\\Xms\\": "src/"}
+    },
+    "require": {
+        "php": "^5.6 || ^7.0",
+        "psr/log": "^1.0"
+    },
+    "require-dev": {
+        "phpdocumentor/phpdocumentor": "^2.0",
+        "phpunit/phpunit": "^5.5",
+        "internations/http-mock": "^0.7",
+        "gamez/psr-testlogger": "^1.0"
+    },
+    "scripts": {
+        "test": "phpunit --bootstrap vendor/autoload.php tests",
+        "test-cover": "phpunit --whitelist=src --coverage-html=cover --bootstrap vendor/autoload.php tests",
+        "phpdoc": "phpdoc run --title 'REST API SDK for SMS' -d src --visibility=public"
+    }
+}

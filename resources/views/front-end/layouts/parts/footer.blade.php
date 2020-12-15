@@ -61,7 +61,7 @@
             </div>
             <div class="col-lg-3 col-md-4">
                 <h5>Contact with Us</h5>
-                <ul class="contacts"> 
+                <ul class="contacts">
                     <li><a href="#"><i class="icon_mobile"></i>0775566168/0777148715</a></li>
                     <li><a href="mailto:info@findoctor.com"><i class="icon_mail_alt"></i>support@smartcaredental.org</a>
                     </li>
@@ -70,9 +70,10 @@
                     <h5>Follow us</h5>
                     <ul>
                         <li><a href="https://www.facebook.com/Smart-Care-Dental-104048811401711"><i class="social_facebook"></i></a></li>
-                        {{-- <li><a href="#0"><i class="social_twitter"></i></a></li>
-                        <li><a href="#0"><i class="social_linkedin"></i></a></li>
-                        <li><a href="#0"><i class="social_instagram"></i></a></li> --}}
+                        <li><a href="https://twitter.com/DoctorOnCare1"><i class="social_twitter"></i></a></li>
+                        <li><a href="https://www.linkedin.com/company/69917151"><i class="social_linkedin"></i></a></li>
+                        <li><a href="https://www.instagram.com/doctoroncare/"><i class="social_instagram"></i></a></li>
+                        <li><a href="https://youtu.be/KRzauTBSo0o"><i class="social_youtube"></i></a></li>
                     </ul>
                 </div>
             </div>

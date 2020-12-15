@@ -43,7 +43,7 @@
                                 @foreach($slider as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td><img class="img-thumbnail" src="{{ Storage::url($item->image) }}" alt=""></td><td>{{ $item->text }}</td>
+                                    <td><img class="img-thumbnail" src="{{ URL::to('/') }}/storage/uploads/{{$item->image}}" alt=""></td><td>{{ $item->text }}</td>
                                     <td>
                                         <a href="{{ url('/admin/slider/' . $item->id) }}" title="View"><button class="btn btn-info btn-sm"><i class="feather-16" data-feather="eye"></i></button></a>
                                     @if (Helper::authCheck('slider-edit'))

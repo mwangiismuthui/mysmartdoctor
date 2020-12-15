@@ -6,7 +6,7 @@
         <aside class="slides">
             @foreach (\App\Slider::all() as $item)
             <figure>
-                <img src=" {{Storage::url($item->image)}} " alt="" />
+                <img src="{{ URL::to('/') }}/storage/uploads/{{$item->image}} " alt="" />
                 <figcaption class="slider-text">
                     {{$item->text}}
                 </figcaption>

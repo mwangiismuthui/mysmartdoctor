@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Session;
 use Helper;
 use Storage;
+use Illuminate\Support\Str;
 
 class SliderController extends Controller
 {
@@ -41,11 +42,14 @@ class SliderController extends Controller
 
     public function store(Request $request)
     {
-        
+
         $requestData = $request->all();
+
+        $imgdestination = '/storage/uploads/';
                 if ($request->hasFile('image')) {
-            $requestData['image'] = $request->file('image')
-                ->store('uploads', 'public');
+                    $sliderimages = $request->file('image');
+                    $imgname = $this->generateUniqueFileName($sliderimages, $imgdestination);
+            $requestData['image'] = $imgname;
             if($request->oldimage){
                 Storage::delete($request->oldimage);
             }
@@ -76,11 +80,13 @@ class SliderController extends Controller
 
     public function update(Request $request, $id)
     {
-        
-        $requestData = $request->all();
+
+
+        $imgdestination = '/storage/uploads/';
                 if ($request->hasFile('image')) {
-            $requestData['image'] = $request->file('image')
-                ->store('uploads', 'public');
+                    $sliderimages = $request->file('image');
+                    $imgname = $this->generateUniqueFileName($sliderimages, $imgdestination);
+            $requestData['image'] = $imgname;
             if($request->oldimage){
                 Storage::delete($request->oldimage);
             }
@@ -101,5 +107,16 @@ class SliderController extends Controller
         Session::flash('success','Successfully Deleted!');
         Helper::activityStore('Delete','slider Delete button clicked');
         return redirect('admin/slider');
+    }
+
+    public function generateUniqueFileName($image, $destinationPath)
+    { $str = Str::random();
+        $initial = "smartdoctor";
+        $name = $initial. $str . time() . '.' . $image->getClientOriginalExtension();
+        if ($image->move(public_path() . $destinationPath, $name)) {
+            return $name;
+        } else {
+            return null;
+        }
     }
 }

@@ -470,7 +470,7 @@
                     {{ csrf_field() }}
                     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                         data-key="pk_test_51HihYYJShVFg8m38Tspqa7Wg2apynx99GRLu8uhKYmWUe6TyMwxUPIqKQw42LQGGnyI9BbvKBhVM46p3iFEfJ8ug00tQGgDibH"
-                        data-amount="{{ $_GET['total']*100 }}" data-name="Booking" data-description="This is good start up booking."
+                        data-amount="{{ 25*100 }}" data-name="Booking" data-description="This is good start up booking."
                         data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto"
                         data-currency="LKR">
                     </script>

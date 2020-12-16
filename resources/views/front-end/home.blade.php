@@ -475,55 +475,7 @@
 </section>
 <!-- END OF About our doctors -->
 <!-- About our doctors  -->
-<section class="about_doctors">
-    <div class="container">
 
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="main_title mt-4">
-                    <h2>Who can use <strong>”Smart Care Dental”</strong>
-                    </h2>
-                    <small> Anyone in Sri Lanka</small>
-
-                </div>
-
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <p>
-                            Smart care Dental built to make healthcare providers (doctors, specialists, allied health
-                            professionals & GPS’s) easily accessible and affordable for Sri Lankans who don’t have the
-                            time to travel to a Dental doctor/Dentist , wait for hours and then travel to the pharmacy,
-                            for something they could’ve easily done in a few minutes from their phones at home or the
-                            office.
-                        </p>
-                        <b>Smart care dental also makes it easy for any Sri Lankan who:</b>
-                        <p class="mt-3">
-                            Anyone Aged 18+- Parents and carers can create an account on behalf of minors, elderly or
-                            those unable to use our platform.
-                        </p>
-                        <p>
-                            Housebound Flexibility to use the platform from any location where there is internet
-                            connection – at home, the office or elsewhere.
-                        </p>
-                        <p>
-                            Time-poor & Busy--Life can be busy – and sometimes scheduling out the time to visit a
-                            provider can be difficult.
-
-                        </p>
-                        <p>
-                            Remote Areas-Those that live outside of metro cities know the difficulty of accessing
-                            healthcare when needed.
-
-                        </p>
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <section class="about_doctors">
     <div class="container">
         <div class="main_title mt-4">

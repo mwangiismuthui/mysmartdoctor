@@ -13,7 +13,15 @@
                             accept-charset="UTF-8" class="form-horizontal needs-validation" novalidate=""
                             enctype="multipart/form-data">
                             {{ csrf_field() }}
-
+                            @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group {{ $errors->has('first_name') ? 'has-error' : ''}}">
@@ -301,9 +309,9 @@
                                     <div class="invalid-feedback"> What's your parent address?</div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="hospitalization" class="control-label">{{ __('If yes please write down the name and  time that was diagnosed 
+                                    <label for="hospitalization" class="control-label">{{ __('If yes please write down the name and  time that was diagnosed
 
-        Please mark yes if you having following conditions 
+        Please mark yes if you having following conditions
         ') }}</label>
 
                                 </div>
@@ -540,9 +548,9 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="hospitalization" class="control-label"> 'If you want to send your pictuers to dentist please upload the pictuers 
+                                    <label for="hospitalization" class="control-label"> 'If you want to send your pictuers to dentist please upload the pictuers
         Instructions on how to get pictures <br>
-         please see before uploading 
+         please see before uploading
          </label>
 
                                     <img class="image-preview ml-5" src="{{ asset('parent.png') }}" alt="">

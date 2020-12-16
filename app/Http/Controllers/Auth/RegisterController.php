@@ -74,7 +74,7 @@ class RegisterController extends Controller
 
     public function smsVerify(Request $request)
     {
-        $mobile_number = $request->country_code.$request->mobile_no;
+        $mobile_number = $request->mobile_no;
 
         $user = User::where('code',$request->code)->where('mobile_no',$mobile_number)->first();
         if (empty($user)) {

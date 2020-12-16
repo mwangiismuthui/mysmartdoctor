@@ -55,7 +55,7 @@
                                 {{-- <div class="col-6">
                                     <div class="form-group {{ $errors->has('mobile_no') ? 'has-error' : ''}}">
                                 <label for="mobile_no" class="control-label">{{ __('Mobile No') }}</label>
-                                <input class="form-control" name="mobile_no" type="number" id="mobile_no"
+                                <input class="form-control" name="telephone_number" type="tel" id="mobile_no"
                                     value="{{ isset($doctor->mobile_no) ? $doctor->mobile_no : old('mobile_no')}}"
                                     required>
                                 {!! $errors->first('mobile_no', '<p class="text-danger">:message</p>') !!}
@@ -65,8 +65,8 @@
                     <div class="col-6">
                         <div class="form-group {{ $errors->has('alternative_mobile_no') ? 'has-error' : ''}}">
                             <label for="alternative_mobile_no"
-                                class="control-label">{{ __('Alternative Mobile No') }}</label>
-                            <input class="form-control" name="alternative_mobile_no" type="number"
+                                class="control-label">{{ __('Mobile No') }}</label>
+                            <input class="form-control" name="alternative_mobile_no" type="tel"
                                 id="alternative_mobile_no"
                                 value="{{ isset($doctor->alternative_mobile_no) ? $doctor->alternative_mobile_no : old('alternative_mobile_no')}}"
                                 required>
@@ -249,7 +249,7 @@
                     </div>
 
                     <div class="form-group {{ $errors->has('registration_no') ? 'has-error' : ''}}">
-                        <label for="registration_no" class="control-label">{{ __('Medical council Registration No                  
+                        <label for="registration_no" class="control-label">{{ __('Medical council Registration No
                             ') }}</label>
                         <input class="form-control" name="registration_no" type="number" id="registration_no"
                             value="{{ isset($doctor->registration_no) ? $doctor->registration_no : old('registration_no')}}"

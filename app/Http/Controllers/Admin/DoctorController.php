@@ -13,6 +13,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Twilio\Rest\Client;
 
 class DoctorController extends Controller
 {
@@ -73,16 +74,17 @@ class DoctorController extends Controller
         // dd($requestData);
         $code = mt_rand(5000,9999);
         $content = 'verify code: '.$code;
-        $mobile_number = $request->country_code.$request->mobile_no;
-        Helper::smsSend($mobile_number,$content);
+        $mobile_number = $request->alternative_mobile_no;
+// dd($mobile_number);
+        $this->smsSend($mobile_number, $content);
         $user = User::create([
             'name' => $requestData['given_name'],
-            'username' => $requestData['username'],
+            'username' => $requestData['given_name'],
             'role' => 'doctor',
             'code' => $code,
             'mobile_no' => $mobile_number,
             'permission' => $permission,
-            'password' => Hash::make($requestData['password']),
+            'password' => Hash::make($code),
         ]);
         if ($request->hasFile('image')) {
             $requestData['image'] = $request->file('image')->storeAS('uploads', rand() . '-' . $request->file('image')->getClientOriginalName());
@@ -186,5 +188,23 @@ class DoctorController extends Controller
         } else {
             return null;
         }
+    }
+    public function smsSend($phone_number, $ujumbe)
+    {
+
+        // dd($phone_number);
+        $sid = "AC7d4002d3e850cb0be7c61501fb310d7f";
+        $token = "3e42f35e62b0c3967f2a23b96f9036c5";
+        $twilio = new Client($sid, $token);
+
+        $message = $twilio->messages
+            ->create($phone_number,
+                array(
+                    "from" => "+14159681376",
+                    "body" => $ujumbe
+                )
+            );
+
+
     }
 }

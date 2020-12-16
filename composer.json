@@ -17,8 +17,7 @@
         "pusher/pusher-php-server": "^4.1",
         "qoraiche/laravel-mail-editor": "^2.0",
         "sagor110090/permission": "dev-master",
-
-        "twilio/sdk": "^6.2"
+        "twilio/sdk": "^6.15"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

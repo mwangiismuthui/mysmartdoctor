@@ -4,6 +4,7 @@ namespace App\Helper;
 
 use App\Mail\EmailSend;
 use App\User;
+use Twilio\Rest\Client;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -28,17 +29,20 @@ class Helper
         }
         return false;
     }
+
     //get all data from table
     public function getAll($tableName)
     {
         return DB::table($tableName)->orderBy('id', 'DESC')->get();
     }
+
     //find by id
     public function findById($tableName, $id)
     {
         // dd(DB::table($tableName)->find($id));
         return DB::table($tableName)->find($id);
     }
+
     //text limit
     public function limit_text($text, $limit)
     {
@@ -49,6 +53,7 @@ class Helper
         }
         return $text;
     }
+
     // user location
     public function country()
     {
@@ -57,6 +62,7 @@ class Helper
             return $query['country'];
         }
     }
+
     //  activity log
     public function activityStore($activity, $description)
     {
@@ -82,6 +88,7 @@ class Helper
         }
         return date('d-M-y h:i A', strtotime($timestamp));
     }
+
     public function globalDate($timestamp)
     {
         if (empty($timestamp)) {
@@ -125,6 +132,7 @@ class Helper
     {
         return Mail::to($email)->queue(new EmailSend($content));
     }
+
     public function sendGroupMail($email, $content)
     {
 
@@ -135,18 +143,34 @@ class Helper
             Mail::to($email)->queue(new EmailSend($name));
         }
     }
+
     public function smsSend($phone_number, $message)
     {
-        $phone_number =$phone_number;
+        dd($phone_number);
+        $sid = 'AC40f5c
+        f872138efad6f0c13197d26aa90';
+        $token = 'fcb06eb9569836c596a7824a7c68b1ba';
+        $client = new Client($sid, $token);
 
-        $customer_id = "7DA612F0-5D00-46A9-BDBB-775AC3394E4A";
-$api_key = "QQBsG8hhiCZTFo17HMk7VkaKkY1MGAXh4f893McZ4GdFXeSbD8pzZe7ob2jtIv4eiZeg6NrkbSs9ghSE+lE19A==";
-        // $phone_number = "**********";
-        // $message = "You're scheduled for a dentist appointment at 2:30PM.";
-        $message_type = "ARN";
-        $messaging = new MessagingClient($customer_id, $api_key);
-        $response = $messaging->message($phone_number, $message, $message_type);
-        
+        //Use the client to do fun stuff like send text messages!
+        $client->messages->create(
+        //the number you'd like to send the message to
+            $phone_number,
+            array(
+                //A Twilio phone number you purchased at twilio.com/console
+                'from' => +14159681376,
+                'body' => $message
+            ));
+//        $phone_number = $phone_number;
+//
+//        $customer_id = "7DA612F0-5D00-46A9-BDBB-775AC3394E4A";
+//        $api_key = "QQBsG8hhiCZTFo17HMk7VkaKkY1MGAXh4f893McZ4GdFXeSbD8pzZe7ob2jtIv4eiZeg6NrkbSs9ghSE+lE19A==";
+//        // $phone_number = "**********";
+//        // $message = "You're scheduled for a dentist appointment at 2:30PM.";
+//        $message_type = "ARN";
+//        $messaging = new MessagingClient($customer_id, $api_key);
+//        $response = $messaging->message($phone_number, $message, $message_type);
+
     }
 
 

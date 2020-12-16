@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateMedicationsTable extends Migration
 {
-  
+
     public function up()
     {
         Schema::create('medications', function (Blueprint $table) {
@@ -17,7 +17,7 @@ class CreateMedicationsTable extends Migration
             });
     }
 
-  
+
     public function down()
     {
         Schema::drop('medications');

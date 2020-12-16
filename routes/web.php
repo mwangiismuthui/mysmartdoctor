@@ -138,7 +138,8 @@ Route::resource('admin/page', 'Admin\\PageController')->only(['edit','update']);
 
 Route::resource('admin/testimonials', 'Admin\\TestimonialsController');
 Route::resource('admin/prescription', 'Admin\\PrescriptionController');
-Route::resource('admin/doctor-available', 'Admin\\DoctorAvailableController');
+Route::resource('admin/doctor-available', 'Admin\\DoctorAvailableCon
+troller');
 
 Route::resource('admin/contact', 'Admin\\ContactController');
 //blog

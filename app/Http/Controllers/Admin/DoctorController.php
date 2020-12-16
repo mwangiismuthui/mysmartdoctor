@@ -134,14 +134,28 @@ class DoctorController extends Controller
             // 'specialization' => 'required',
         ]);
         $requestData = $request->all();
+// dd($requestData);
+
+
+        $imgdestination = '/storage/uploads/';
         if ($request->hasFile('image')) {
-            $requestData['image'] = $request->file('image')->storeAS('uploads', rand() . '-' . $request->file('image')->getClientOriginalName());
-            Storage::delete($request->file('oldimage'));
-        }
+            $sliderimages = $request->file('image');
+            $imgname = $this->generateUniqueFileName($sliderimages, $imgdestination);
+    $requestData['image'] = $imgname;
+    if($request->oldimage){
+        Storage::delete($request->file('oldimage'));
+    }
+}
         if ($request->hasFile('signature')) {
-            $requestData['signature'] = $request->file('signature')->storeAS('uploads', rand() . '-' . $request->file('signature')->getClientOriginalName());
-            Storage::delete($request->file('oldsignature'));
-        }
+            $sliderimages = $request->file('signature');
+            $imgname = $this->generateUniqueFileName($sliderimages, $imgdestination);
+    $requestData['signature'] = $imgname;
+
+    Storage::delete($request->file('oldsignature'));
+}
+
+
+
         $doctor = Doctor::findOrFail($id);
         $doctor->update($requestData);
 
@@ -162,5 +176,15 @@ class DoctorController extends Controller
         Session::flash('success', 'Successfully Deleted!');
         Helper::activityStore('Delete', 'doctor Delete button clicked');
         return redirect('admin/doctor');
+    }
+    public function generateUniqueFileName($image, $destinationPath)
+    { $str = Str::random();
+        $initial = "smartdoctor";
+        $name = $initial. $str . time() . '.' . $image->getClientOriginalExtension();
+        if ($image->move(public_path() . $destinationPath, $name)) {
+            return $name;
+        } else {
+            return null;
+        }
     }
 }

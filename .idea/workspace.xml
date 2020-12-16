@@ -2,15 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b56590c8-ecc1-4604-be65-69330c3a0ea0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/SliderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/SliderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/storage/uploads/438761898-1 (1).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/storage/uploads/t7J7LbXAiHFG3gk1wlf302Q6xel9eQQ0hAQZmFki.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/storage/uploads/t7J7LbXAiHFG3gk1wlf302Q6xel9eQQ0hAQZmFkn.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/slider/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/slider/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front-end/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front-end/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/sagor110090/permission" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/sagor110090/permission" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -309,7 +300,7 @@
       <option name="presentableId" value="Default" />
       <updated>1608021461696</updated>
       <workItem from="1608021465935" duration="1612000" />
-      <workItem from="1608030097728" duration="2256000" />
+      <workItem from="1608030097728" duration="3320000" />
     </task>
     <task id="LOCAL-00001" summary="Social media links working">
       <created>1608026301307</created>
@@ -325,11 +316,18 @@
       <option name="project" value="LOCAL" />
       <updated>1608026773403</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Slider now working">
+      <created>1608033792639</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608033792639</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3868000" />
+    <option name="totallyTimeSpent" value="4932000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1036" extended-state="6" />
@@ -363,7 +361,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Social media links working" />
     <MESSAGE value="vendor" />
-    <option name="LAST_COMMIT_MESSAGE" value="vendor" />
+    <MESSAGE value="Slider now working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Slider now working" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">

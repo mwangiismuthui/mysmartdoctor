@@ -50,7 +50,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->name }}</td>
-                            <td><img class="img-thumbnail" src="{{ Storage::url($item->image) }}" alt=""></td>
+                            <td><img class="img-thumbnail" src="{{ URL::to('/') }}/storage/uploads/{{$item->image}}" alt=""></td>
                             <td>{{ $item->description }}</td>
                             <td>
                                 <a href="{{ url('/admin/testimonials/' . $item->id) }}" title="View"><button

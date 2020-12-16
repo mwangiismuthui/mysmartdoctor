@@ -21,16 +21,17 @@ class DoctorAvailableController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $doctoravailable = DoctorAvailable::where('doctor_id',Auth::user()->doctor->id)->where('starting_time', 'LIKE', "%$keyword%")
+            $doctoravailable = DoctorAvailable::where('doctor_id',Auth::user()->id)->where('starting_time', 'LIKE', "%$keyword%")
                 ->orWhere('ending_time', 'LIKE', "%$keyword%")
                 ->orWhere('date', 'LIKE', "%$keyword%")
                 ->orWhere('doctor_id', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $doctoravailable = DoctorAvailable::where('doctor_id',Auth::user()->doctor->id)->latest()->paginate($perPage);
+            $doctoravailable = DoctorAvailable::where('doctor_id',Auth::user()->id)->latest()->paginate($perPage);
         }
 
         Helper::activityStore('Show','doctoravailable  Show All Record');
+
         return view('admin.doctor-available.index', compact('doctoravailable'));
     }
 

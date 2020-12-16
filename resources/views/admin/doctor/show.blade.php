@@ -211,85 +211,15 @@
             </div>
             <!-- Upload and crop -->
 
-            <div class="example">
-				<div class="" style="padding-top:120px">
-					<div id="userpic" class="userpic">
-						<div class="js-preview userpic__preview"></div>
-						<div class="btn btn-success js-fileapi-wrapper text-center" style="text-align-center">
-							<div class="js-browse">
-								<span class="btn-txt">Choose</span>
-								<input type="file" name="image"  accept=".png, .jpg, .jpeg,.zip,.mp4"
-                                    value="{{ isset($doctor->image) ? $doctor->image : old('image')}}"/>
-                                <input type='text' name="oldimage" value="{{ isset($doctor->image) ? $doctor->image : ''}}" hidden>
 
-							</div>
-							<div class="js-upload" style="display: none;">
-								<div class="progress progress-success"><div class="js-progress bar"></div></div>
-								<span class="btn-txt">Uploading</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<script>
-					examples.push(function (){
-						$('#userpic').fileapi({
-							url: '',
-							accept: 'image/*',
-							imageSize: { minWidth: 200, minHeight: 200 },
-							elements: {
-								active: { show: '.js-upload', hide: '.js-browse' },
-								preview: {
-									el: '.js-preview',
-									width: 200,
-									height: 200
-								},
-								progress: '.js-progress'
-							},
-							onSelect: function (evt, ui){
-								var file = ui.files[0];
-
-								if( !FileAPI.support.transform ) {
-									alert('Your browser does not support Flash :(');
-								}
-								else if( file ){
-									$('#popup').modal({
-										closeOnEsc: true,
-										closeOnOverlayClick: false,
-										onOpen: function (overlay){
-											$(overlay).on('click', '.js-upload', function (){
-												$.modal().close();
-												$('#userpic').fileapi('upload');
-											});
-
-											$('.js-img', overlay).cropper({
-												file: file,
-												bgColor: '#fff',
-												maxSize: [$(window).width()-100, $(window).height()-100],
-												minSize: [200, 200],
-												selection: '90%',
-												onSelect: function (coords){
-													$('#userpic').fileapi('crop', file, coords);
-												}
-											});
-										}
-									}).open();
-								}
-							}
-						});
-					});
-				</script>
-			</div>
             <div class="form-group {{ $errors->has('image') ? 'has-error' : ''}}">
                 <label for="image"
                     class="control-label">{{ __('Uplaod the passport size profile pict-  ') }}</label><br>
-                <input type='file' name="image" accept=".png, .jpg, .jpeg,.zip,.mp4" readonly
-                    onchange="showMyImage(this,'image')"
-                    value="{{ isset($doctor->image) ? $doctor->image : old('image')}}">
                 <input type='text' name="oldimage" value="{{ isset($doctor->image) ? $doctor->image : ''}}" hidden>
                 <div class="avatar-upload">
                     <div class="avatar-preview">
                         <img id="image" class="avatar-preview"
-                            src="{{ isset($doctor->image) ? Storage::url($doctor->image) : asset('upload.png')}}"
+                            src="{{URL::to('/') .'/storage/uploads/'. $doctor->image}}"
                             alt="image" />
                     </div>
                 </div>
@@ -370,5 +300,8 @@
 				fn();
 			});
 		});
-	</script>
+    </script>
+
+
+
 @endpush

@@ -54,7 +54,7 @@ class TestimonialsController extends Controller
                 Storage::delete($request->oldimage);
             }
         }
-       
+
 
         Testimonial::create($requestData);
         Session::flash('success','Successfully Saved!');
@@ -85,15 +85,16 @@ class TestimonialsController extends Controller
 			'name' => 'required',
 			'description' => 'required'
 		]);
-        $requestData = $request->all();
-                if ($request->hasFile('image')) {
-            $requestData['image'] = $request->file('image')
-                ->store('uploads', 'public');
-            if($request->oldimage){
-                Storage::delete($request->oldimage);
-            }
-        }
-        
+        $imgdestination = '/storage/uploads/';
+        if ($request->hasFile('image')) {
+            $testimonialimages = $request->file('image');
+            $imgname = $this->generateUniqueFileName($testimonialimages, $imgdestination);
+    $requestData['image'] = $imgname;
+    if($request->oldimage){
+        Storage::delete($request->oldimage);
+    }
+}
+
 
         $testimonial = Testimonial::findOrFail($id);
         $testimonial->update($requestData);
@@ -110,5 +111,15 @@ class TestimonialsController extends Controller
         Session::flash('success','Successfully Deleted!');
         Helper::activityStore('Delete','testimonials Delete button clicked');
         return redirect('admin/testimonials');
+    }
+    public function generateUniqueFileName($image, $destinationPath)
+    { $str = Str::random();
+        $initial = "smartdoctor";
+        $name = $initial. $str . time() . '.' . $image->getClientOriginalExtension();
+        if ($image->move(public_path() . $destinationPath, $name)) {
+            return $name;
+        } else {
+            return null;
+        }
     }
 }

@@ -118,7 +118,7 @@
                     }
                 });
         }
-        // multiple click privent 
+        // multiple click privent
         $('.oneTimeSubmit').click(function () {
             var count1 = 0;
             var count2 = -1;
@@ -141,7 +141,7 @@
         $('input, textarea, select').keyup(function (e) {
             $(this).closest('form').addClass("was-validated");
         });
-        // tostr message 
+        // tostr message
         @if(Session::has('success'))
         iziToast.success({
             // title: 'Hello, world!',
@@ -157,7 +157,7 @@
         });
         @endif
         @if(Session::has('error'))
-        iziToast.error({ 
+        iziToast.error({
             message: '{{ Session::get('error') }}',
             position: 'topRight'
         });

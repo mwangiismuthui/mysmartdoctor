@@ -31,7 +31,8 @@ class MedicationController extends Controller
         if (Auth::user()->role == 'patient') {
             $medication = Medication::where('patient_id', Auth::user()->first()->id)->latest()->get();
         } else {
-            $medication = LabReportMedication::latest()->get();
+            $medication = Medication::latest()->get();
+
         }
         Helper::activityStore('Show','medication  Show All Record');
         return view('admin.medication.index', compact('medication'));
@@ -49,7 +50,7 @@ class MedicationController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-			'medication' => 'required' 
+			'medication' => 'required'
 		]);
         $requestData = $request->all();
         $requestData["patient_id"] =  Auth::user()->first()->id;

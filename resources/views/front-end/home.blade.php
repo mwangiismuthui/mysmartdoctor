@@ -179,7 +179,7 @@
 </div>
 
 <!-- TESTIMONIALS -->
-<section class="testimonials">
+{{-- <section class="testimonials">
     <div class="container">
 
         <div class="row">
@@ -194,11 +194,7 @@
                                 <div style=" ">
 
                                     <div class="col-md-12">
-                                        {{-- <video onloadeddata="this.play();" poster="poster.png" playsinline loop muted controls> --}}
-                                        {{-- <video width="420" height="800" loop="true" onloadeddata="this.play();" playsinline loop muted controls>
-                                            <source src="{{ Storage::url('slider-video.mp4') }}" type="video/mp4">
-                                            Your browser does not support the video tag.
-                                        </video> --}}
+
                                         <object data="https://www.youtube.com/embed/PRTtempi2mA?autoplay=1"
                                         width="1200" height="800"></object>
 
@@ -212,9 +208,9 @@
         </div>
     </div>
 </section>
-<!-- END OF TESTIMONIALS -->
+<!-- END OF TESTIMONIALS --> --}}
 <!-- TESTIMONIALS -->
-<section class="testimonials">
+{{-- <section class="testimonials">
     <div class="container">
 
         <div class="row">
@@ -234,16 +230,11 @@
                                         <a href="#">
                                             <img src="{{Storage::url($item->image)}}" style="height: 60% ;width: 60%;"
                                                 alt="">
-                                            {{-- <div class="post-date">
-                                    <span class="date">10</span>
-                                    <span class="month">jan</span>
-                                </div> --}}
+
                                         </a>
                                     </div>
                                     <div class="post-review">
                                         <ul class="post-bar">
-                                            {{-- <li><i class="fa fa-user"></i><a href="#">admin</a></li>
-                                <li><i class="fa fa-comment"></i><a href="#">5</a></li> --}}
                                         </ul>
                                         <p class="post-description">{{Str::words($item->description,200 , '...')}}</p>
                                     </div>
@@ -256,7 +247,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 <!-- END OF TESTIMONIALS -->
 <!-- Why choose Us -->
 <div id="app_section">

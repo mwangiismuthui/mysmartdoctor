@@ -470,12 +470,12 @@
                     {{ csrf_field() }}
                     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                         data-key="pk_test_51HihYYJShVFg8m38Tspqa7Wg2apynx99GRLu8uhKYmWUe6TyMwxUPIqKQw42LQGGnyI9BbvKBhVM46p3iFEfJ8ug00tQGgDibH"
-                        data-amount="{{ $_GET['sadasdas']*100 }}" data-name="Booking" data-description="This is good start up booking."
+                        data-amount="{{ $_GET['total']*100 }}" data-name="Booking" data-description="This is good start up booking."
                         data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto"
                         data-currency="LKR">
                     </script>
                 </form>
-                
+
 
                 <svg class="svg-master" viewBox="0 0 512 512">
                     <path class="svg-master-border"
@@ -644,7 +644,7 @@
     <!--    src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'>-->
     <!--</script>-->
     <!--<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>-->
- 
+
 </body>
 
 </html>
@@ -658,7 +658,7 @@ $getData = [
 'date' => $_GET['date'],
 'doctor_id' => $_GET['doctor_id'],
 'id' => $_GET['id'],
-'total' => $_GET['sadasdas'],
+'total' => $_GET['total'],
 'service' => $_GET['service'],
 'booking' => $_GET['booking']
 ];
